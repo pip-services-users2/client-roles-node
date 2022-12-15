@@ -30,12 +30,11 @@ export class RolesGrpcClientV1 extends GrpcClient implements IRolesClientV1 {
             if (response.error != null)
                 throw RolesGrpcConverterV1.toError(response.error);
 
+            timing.endTiming();
             return response ? RolesGrpcConverterV1.toUserRolesPage(response.getPage()) : null;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -52,13 +51,12 @@ export class RolesGrpcClientV1 extends GrpcClient implements IRolesClientV1 {
             if (response.error != null)
                 throw RolesGrpcConverterV1.toError(response.error);
 
+            timing.endTiming();
             return response ? response.getRolesList() : null;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
-        }       
+        }    
     }
 
     public async setRoles(correlationId: string, userId: string, roles: string[]): Promise<string[]> {
@@ -75,13 +73,12 @@ export class RolesGrpcClientV1 extends GrpcClient implements IRolesClientV1 {
             if (response.error != null)
                 throw RolesGrpcConverterV1.toError(response.error);
 
+            timing.endTiming();
             return response ? response.getRolesList() : null;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
-        }         
+        }      
     }
 
     public async grantRoles(correlationId: string, userId: string, roles: string[]): Promise<string[]> {
@@ -98,13 +95,12 @@ export class RolesGrpcClientV1 extends GrpcClient implements IRolesClientV1 {
             if (response.error != null)
                 throw RolesGrpcConverterV1.toError(response.error);
 
+            timing.endTiming();
             return response ? response.getRolesList() : null;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
-        }             
+        }            
     }
 
     public async revokeRoles(correlationId: string, userId: string, roles: string[]): Promise<string[]> {
@@ -121,13 +117,12 @@ export class RolesGrpcClientV1 extends GrpcClient implements IRolesClientV1 {
             if (response.error != null)
                 throw RolesGrpcConverterV1.toError(response.error);
 
+            timing.endTiming();
             return response ? response.getRolesList() : null;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
-        }           
+        }         
     }
 
         
@@ -145,12 +140,11 @@ export class RolesGrpcClientV1 extends GrpcClient implements IRolesClientV1 {
             if (response.error != null)
                 throw RolesGrpcConverterV1.toError(response.error);
 
+            timing.endTiming();
             return response ? response.getAuthorized() : null;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
-        }                  
+        }                 
     }
 }

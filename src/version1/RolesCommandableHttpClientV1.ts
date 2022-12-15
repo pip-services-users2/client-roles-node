@@ -2,12 +2,12 @@ import { ConfigParams } from 'pip-services3-commons-nodex';
 import { FilterParams } from 'pip-services3-commons-nodex';
 import { PagingParams } from 'pip-services3-commons-nodex';
 import { DataPage } from 'pip-services3-commons-nodex';
-import { CommandableGrpcClient } from 'pip-services3-grpc-nodex';
+import { CommandableHttpClient } from 'pip-services3-rpc-nodex';
 
 import { UserRolesV1 } from './UserRolesV1';
 import { IRolesClientV1 } from './IRolesClientV1';
 
-export class RolesCommandableGrpcClientV1 extends CommandableGrpcClient implements IRolesClientV1 {
+export class RolesCommandableHttpClientV1 extends CommandableHttpClient implements IRolesClientV1 {
 
     constructor(config?: any) {
         super('v1/roles');
@@ -48,7 +48,7 @@ export class RolesCommandableGrpcClientV1 extends CommandableGrpcClient implemen
         );
     }
 
-    public async grantRoles(correlationId: string, userId: string, roles: string[]): Promise<string[]>{
+    public async grantRoles(correlationId: string, userId: string, roles: string[]): Promise<string[]> {
         return await this.callCommand(
             'grant_roles',
             correlationId,
@@ -71,13 +71,18 @@ export class RolesCommandableGrpcClientV1 extends CommandableGrpcClient implemen
     }
     
     public async authorize(correlationId: string, userId: string, roles: string[]): Promise<boolean> {
-        return await this.callCommand<any>(
+        let result = await this.callCommand<any>(
             'authorize',
             correlationId,
             {
                 user_id: userId,
                 roles: roles
-            },
+            }
         );
+
+        if (result == 'null')
+            result = false;
+
+        return result
     }
 }

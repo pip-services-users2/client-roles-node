@@ -23,12 +23,12 @@ export class RolesDirectClientV1 extends DirectClient<any> implements IRolesClie
         let timing = this.instrument(correlationId, 'roles.get_roles_by_filter');
 
         try {
-            return await this._controller.getRolesByFilter(correlationId, filter, paging);
+            let res = await this._controller.getRolesByFilter(correlationId, filter, paging);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -36,12 +36,12 @@ export class RolesDirectClientV1 extends DirectClient<any> implements IRolesClie
         let timing = this.instrument(correlationId, 'roles.get_roles_by_id');
 
         try {
-            return await this._controller.getRolesById(correlationId, userId);
+            let res = await this._controller.getRolesById(correlationId, userId);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -49,12 +49,12 @@ export class RolesDirectClientV1 extends DirectClient<any> implements IRolesClie
         let timing = this.instrument(correlationId, 'roles.set_roles');
 
         try {
-            return await this._controller.setRoles(correlationId, userId, roles);
+            let res = await this._controller.setRoles(correlationId, userId, roles);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -62,12 +62,12 @@ export class RolesDirectClientV1 extends DirectClient<any> implements IRolesClie
         let timing = this.instrument(correlationId, 'roles.grant_roles');
 
         try {
-            return await this._controller.grantRoles(correlationId, userId, roles);
+            let res = await this._controller.grantRoles(correlationId, userId, roles);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -75,12 +75,12 @@ export class RolesDirectClientV1 extends DirectClient<any> implements IRolesClie
         let timing = this.instrument(correlationId, 'roles.revoke_roles');
 
         try {
-            return await this._controller.revokeRoles(correlationId, userId, roles);
+            let res = await this._controller.revokeRoles(correlationId, userId, roles);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
     
@@ -88,12 +88,12 @@ export class RolesDirectClientV1 extends DirectClient<any> implements IRolesClie
         let timing = this.instrument(correlationId, 'roles.authorize');
 
         try {
-            return await this._controller.authorize(correlationId, userId, roles);
+            let res = await this._controller.authorize(correlationId, userId, roles);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 }

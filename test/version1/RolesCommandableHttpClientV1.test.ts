@@ -7,9 +7,9 @@ import { ConsoleLogger } from 'pip-services3-components-nodex';
 
 import { RolesMemoryPersistence } from 'service-roles-node';
 import { RolesController } from 'service-roles-node';
-import { RolesHttpServiceV1 } from 'service-roles-node';
+import { RolesCommandableHttpServiceV1 } from 'service-roles-node';
 
-import { RolesHttpClientV1 } from '../../src/version1/RolesHttpClientV1';
+import { RolesCommandableHttpClientV1 } from '../../src/version1/RolesCommandableHttpClientV1';
 import { RolesClientFixtureV1 } from './RolesClientFixtureV1';
 
 var httpConfig = ConfigParams.fromTuples(
@@ -19,8 +19,8 @@ var httpConfig = ConfigParams.fromTuples(
 );
 
 suite('RolesHttpClientV1', ()=> {
-    let service: RolesHttpServiceV1;
-    let client: RolesHttpClientV1;
+    let service: RolesCommandableHttpServiceV1;
+    let client: RolesCommandableHttpClientV1;
     let persistence: RolesMemoryPersistence;
     let fixture: RolesClientFixtureV1;
 
@@ -29,7 +29,7 @@ suite('RolesHttpClientV1', ()=> {
         persistence = new RolesMemoryPersistence();
         let controller = new RolesController();
 
-        service = new RolesHttpServiceV1();
+        service = new RolesCommandableHttpServiceV1();
         service.configure(httpConfig);
 
         let references: References = References.fromTuples(
@@ -41,7 +41,7 @@ suite('RolesHttpClientV1', ()=> {
         controller.setReferences(references);
         service.setReferences(references);
 
-        client = new RolesHttpClientV1();
+        client = new RolesCommandableHttpClientV1();
         client.setReferences(references);
         client.configure(httpConfig);
 

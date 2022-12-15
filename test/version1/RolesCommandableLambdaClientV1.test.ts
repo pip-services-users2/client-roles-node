@@ -1,9 +1,9 @@
 import { ConfigParams } from 'pip-services3-commons-nodex';
 
 import { RolesClientFixtureV1 } from './RolesClientFixtureV1';
-import { RolesLambdaClientV1 } from '../../src/version1/RolesLambdaClientV1';
+import { RolesCommandableLambdaClientV1 } from '../../src/version1/RolesCommandableLambdaClientV1';
 
-suite('RolesLambdaClient', ()=> {
+suite('RolesCommandableLambdaClient', ()=> {
     let AWS_LAMDBA_ARN = process.env["AWS_LAMDBA_ARN"] || "";
     let AWS_ACCESS_ID = process.env["AWS_ACCESS_ID"] || "";
     let AWS_ACCESS_KEY = process.env["AWS_ACCESS_KEY"] || "";
@@ -24,11 +24,11 @@ suite('RolesLambdaClient', ()=> {
     if (lambdaConfig.getAsNullableString("connection.protocol") != "aws")
         return;
 
-    let client: RolesLambdaClientV1;
+    let client: RolesCommandableLambdaClientV1;
     let fixture: RolesClientFixtureV1;
 
     setup(async () => {
-        client = new RolesLambdaClientV1();
+        client = new RolesCommandableLambdaClientV1();
         client.configure(lambdaConfig);
 
         fixture = new RolesClientFixtureV1(client);

@@ -25,14 +25,13 @@ class RolesDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'roles.get_roles_by_filter');
             try {
-                return yield this._controller.getRolesByFilter(correlationId, filter, paging);
+                let res = yield this._controller.getRolesByFilter(correlationId, filter, paging);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -40,14 +39,13 @@ class RolesDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'roles.get_roles_by_id');
             try {
-                return yield this._controller.getRolesById(correlationId, userId);
+                let res = yield this._controller.getRolesById(correlationId, userId);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -55,14 +53,13 @@ class RolesDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'roles.set_roles');
             try {
-                return yield this._controller.setRoles(correlationId, userId, roles);
+                let res = yield this._controller.setRoles(correlationId, userId, roles);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -70,14 +67,13 @@ class RolesDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'roles.grant_roles');
             try {
-                return yield this._controller.grantRoles(correlationId, userId, roles);
+                let res = yield this._controller.grantRoles(correlationId, userId, roles);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -85,14 +81,13 @@ class RolesDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'roles.revoke_roles');
             try {
-                return yield this._controller.revokeRoles(correlationId, userId, roles);
+                let res = yield this._controller.revokeRoles(correlationId, userId, roles);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -100,14 +95,13 @@ class RolesDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'roles.authorize');
             try {
-                return yield this._controller.authorize(correlationId, userId, roles);
+                let res = yield this._controller.authorize(correlationId, userId, roles);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }

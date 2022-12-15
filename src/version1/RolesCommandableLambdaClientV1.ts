@@ -2,20 +2,20 @@ import { ConfigParams } from 'pip-services3-commons-nodex';
 import { FilterParams } from 'pip-services3-commons-nodex';
 import { PagingParams } from 'pip-services3-commons-nodex';
 import { DataPage } from 'pip-services3-commons-nodex';
-import { CommandableGrpcClient } from 'pip-services3-grpc-nodex';
+import { CommandableLambdaClient } from 'pip-services3-aws-nodex';
 
 import { UserRolesV1 } from './UserRolesV1';
 import { IRolesClientV1 } from './IRolesClientV1';
 
-export class RolesCommandableGrpcClientV1 extends CommandableGrpcClient implements IRolesClientV1 {
+export class RolesCommandableLambdaClientV1 extends CommandableLambdaClient implements IRolesClientV1 {
 
     constructor(config?: any) {
-        super('v1/roles');
+        super('roles');
 
         if (config != null)
             this.configure(ConfigParams.fromValue(config));
     }
-
+        
     public async getRolesByFilter(correlationId: string, filter: FilterParams, paging: PagingParams): Promise<DataPage<UserRolesV1>> {
         return await this.callCommand(
             'get_roles_by_filter',
@@ -26,7 +26,7 @@ export class RolesCommandableGrpcClientV1 extends CommandableGrpcClient implemen
             }
         );
     }
-        
+
     public async getRolesById(correlationId: string, userId: string): Promise<string[]> {
         return await this.callCommand(
             'get_roles_by_id',
@@ -48,7 +48,7 @@ export class RolesCommandableGrpcClientV1 extends CommandableGrpcClient implemen
         );
     }
 
-    public async grantRoles(correlationId: string, userId: string, roles: string[]): Promise<string[]>{
+    public async grantRoles(correlationId: string, userId: string, roles: string[]): Promise<string[]> {
         return await this.callCommand(
             'grant_roles',
             correlationId,
@@ -71,13 +71,15 @@ export class RolesCommandableGrpcClientV1 extends CommandableGrpcClient implemen
     }
     
     public async authorize(correlationId: string, userId: string, roles: string[]): Promise<boolean> {
-        return await this.callCommand<any>(
+        let result = await this.callCommand(
             'authorize',
             correlationId,
             {
                 user_id: userId,
                 roles: roles
-            },
+            }
         );
+
+        return result ? result.authorized : null
     }
 }

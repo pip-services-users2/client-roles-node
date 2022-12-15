@@ -9,10 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RolesCommandableGrpcClientV1 = void 0;
+exports.RolesCommandableHttpClientV1 = void 0;
 const pip_services3_commons_nodex_1 = require("pip-services3-commons-nodex");
-const pip_services3_grpc_nodex_1 = require("pip-services3-grpc-nodex");
-class RolesCommandableGrpcClientV1 extends pip_services3_grpc_nodex_1.CommandableGrpcClient {
+const pip_services3_rpc_nodex_1 = require("pip-services3-rpc-nodex");
+class RolesCommandableHttpClientV1 extends pip_services3_rpc_nodex_1.CommandableHttpClient {
     constructor(config) {
         super('v1/roles');
         if (config != null)
@@ -59,12 +59,15 @@ class RolesCommandableGrpcClientV1 extends pip_services3_grpc_nodex_1.Commandabl
     }
     authorize(correlationId, userId, roles) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.callCommand('authorize', correlationId, {
+            let result = yield this.callCommand('authorize', correlationId, {
                 user_id: userId,
                 roles: roles
             });
+            if (result == 'null')
+                result = false;
+            return result;
         });
     }
 }
-exports.RolesCommandableGrpcClientV1 = RolesCommandableGrpcClientV1;
-//# sourceMappingURL=RolesCommandableGrpcClientV1.js.map
+exports.RolesCommandableHttpClientV1 = RolesCommandableHttpClientV1;
+//# sourceMappingURL=RolesCommandableHttpClientV1.js.map

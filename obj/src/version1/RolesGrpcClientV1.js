@@ -28,14 +28,12 @@ class RolesGrpcClientV1 extends pip_services3_grpc_nodex_1.GrpcClient {
                 let response = yield this.call('get_roles_by_filter', correlationId, request);
                 if (response.error != null)
                     throw RolesGrpcConverterV1_1.RolesGrpcConverterV1.toError(response.error);
+                timing.endTiming();
                 return response ? RolesGrpcConverterV1_1.RolesGrpcConverterV1.toUserRolesPage(response.getPage()) : null;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -48,14 +46,12 @@ class RolesGrpcClientV1 extends pip_services3_grpc_nodex_1.GrpcClient {
                 let response = yield this.call('get_roles_by_id', correlationId, request);
                 if (response.error != null)
                     throw RolesGrpcConverterV1_1.RolesGrpcConverterV1.toError(response.error);
+                timing.endTiming();
                 return response ? response.getRolesList() : null;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -69,14 +65,12 @@ class RolesGrpcClientV1 extends pip_services3_grpc_nodex_1.GrpcClient {
                 let response = yield this.call('set_roles', correlationId, request);
                 if (response.error != null)
                     throw RolesGrpcConverterV1_1.RolesGrpcConverterV1.toError(response.error);
+                timing.endTiming();
                 return response ? response.getRolesList() : null;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -90,14 +84,12 @@ class RolesGrpcClientV1 extends pip_services3_grpc_nodex_1.GrpcClient {
                 let response = yield this.call('grant_roles', correlationId, request);
                 if (response.error != null)
                     throw RolesGrpcConverterV1_1.RolesGrpcConverterV1.toError(response.error);
+                timing.endTiming();
                 return response ? response.getRolesList() : null;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -111,14 +103,12 @@ class RolesGrpcClientV1 extends pip_services3_grpc_nodex_1.GrpcClient {
                 let response = yield this.call('revoke_roles', correlationId, request);
                 if (response.error != null)
                     throw RolesGrpcConverterV1_1.RolesGrpcConverterV1.toError(response.error);
+                timing.endTiming();
                 return response ? response.getRolesList() : null;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -132,14 +122,12 @@ class RolesGrpcClientV1 extends pip_services3_grpc_nodex_1.GrpcClient {
                 let response = yield this.call('authorize', correlationId, request);
                 if (response.error != null)
                     throw RolesGrpcConverterV1_1.RolesGrpcConverterV1.toError(response.error);
+                timing.endTiming();
                 return response ? response.getAuthorized() : null;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
