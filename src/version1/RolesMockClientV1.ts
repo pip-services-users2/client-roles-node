@@ -5,7 +5,7 @@ import { DataPage } from 'pip-services3-commons-nodex';
 import { UserRolesV1 } from './UserRolesV1';
 import { IRolesClientV1 } from './IRolesClientV1';
 
-export class RolesMemoryClientV1 implements IRolesClientV1 {
+export class RolesMockClientV1 implements IRolesClientV1 {
     private _roles: UserRolesV1[] = [];
 
     private contains(array1, array2) {

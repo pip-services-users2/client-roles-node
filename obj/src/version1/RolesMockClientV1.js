@@ -9,11 +9,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RolesMemoryClientV1 = void 0;
+exports.RolesMockClientV1 = void 0;
 const pip_services3_commons_nodex_1 = require("pip-services3-commons-nodex");
 const pip_services3_commons_nodex_2 = require("pip-services3-commons-nodex");
 const UserRolesV1_1 = require("./UserRolesV1");
-class RolesMemoryClientV1 {
+class RolesMockClientV1 {
     constructor() {
         this._roles = [];
     }
@@ -138,5 +138,5 @@ class RolesMemoryClientV1 {
         });
     }
 }
-exports.RolesMemoryClientV1 = RolesMemoryClientV1;
-//# sourceMappingURL=RolesMemoryClientV1.js.map
+exports.RolesMockClientV1 = RolesMockClientV1;
+//# sourceMappingURL=RolesMockClientV1.js.map

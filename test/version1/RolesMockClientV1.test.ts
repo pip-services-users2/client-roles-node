@@ -1,14 +1,14 @@
 const assert = require('chai').assert;
 
-import { RolesMemoryClientV1 } from '../../src/version1/RolesMemoryClientV1';
+import { RolesMockClientV1 } from '../../src/version1/RolesMockClientV1';
 import { RolesClientFixtureV1 } from './RolesClientFixtureV1';
 
-suite('RolesMemoryClientV1', ()=> {
-    let client: RolesMemoryClientV1;
+suite('RolesMockClientV1', ()=> {
+    let client: RolesMockClientV1;
     let fixture: RolesClientFixtureV1;
 
     setup(() => {
-        client = new RolesMemoryClientV1();
+        client = new RolesMockClientV1();
 
         fixture = new RolesClientFixtureV1(client);
     });

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RolesGrpcClientV1 = exports.RolesCommandableGrpcClientV1 = exports.RolesNullClientV1 = exports.RolesMemoryClientV1 = exports.RolesDirectClientV1 = exports.RolesCommandableLambdaClientV1 = exports.RolesCommandableHttpClientV1 = exports.UserRolesV1 = void 0;
+exports.RolesGrpcClientV1 = exports.RolesCommandableGrpcClientV1 = exports.RolesNullClientV1 = exports.RolesMockClientV1 = exports.RolesDirectClientV1 = exports.RolesCommandableLambdaClientV1 = exports.RolesCommandableHttpClientV1 = exports.UserRolesV1 = void 0;
 var UserRolesV1_1 = require("./UserRolesV1");
 Object.defineProperty(exports, "UserRolesV1", { enumerable: true, get: function () { return UserRolesV1_1.UserRolesV1; } });
 var RolesCommandableHttpClientV1_1 = require("./RolesCommandableHttpClientV1");
@@ -9,8 +9,8 @@ var RolesCommandableLambdaClientV1_1 = require("./RolesCommandableLambdaClientV1
 Object.defineProperty(exports, "RolesCommandableLambdaClientV1", { enumerable: true, get: function () { return RolesCommandableLambdaClientV1_1.RolesCommandableLambdaClientV1; } });
 var RolesDirectClientV1_1 = require("./RolesDirectClientV1");
 Object.defineProperty(exports, "RolesDirectClientV1", { enumerable: true, get: function () { return RolesDirectClientV1_1.RolesDirectClientV1; } });
-var RolesMemoryClientV1_1 = require("./RolesMemoryClientV1");
-Object.defineProperty(exports, "RolesMemoryClientV1", { enumerable: true, get: function () { return RolesMemoryClientV1_1.RolesMemoryClientV1; } });
+var RolesMockClientV1_1 = require("./RolesMockClientV1");
+Object.defineProperty(exports, "RolesMockClientV1", { enumerable: true, get: function () { return RolesMockClientV1_1.RolesMockClientV1; } });
 var RolesNullClientV1_1 = require("./RolesNullClientV1");
 Object.defineProperty(exports, "RolesNullClientV1", { enumerable: true, get: function () { return RolesNullClientV1_1.RolesNullClientV1; } });
 var RolesCommandableGrpcClientV1_1 = require("./RolesCommandableGrpcClientV1");
